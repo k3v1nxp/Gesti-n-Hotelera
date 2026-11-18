@@ -1,0 +1,51 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Modelo;
+
+/**
+ *
+ * @author 09092026
+ */
+public class Huesped {
+     String Id;
+    String nombre;
+    String telefono;
+    String gmail;
+
+    public Huesped(String Id, String nombre, String telefono, String gmail) {
+        this.Id = Id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.gmail = gmail;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getGmail() {
+        return gmail;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setGmail(String gmail) {
+        this.gmail = gmail;
+    }
+}
