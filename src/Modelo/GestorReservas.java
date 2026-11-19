@@ -93,4 +93,24 @@ public class GestorReservas {
     public synchronized List<Reserva> getListaReservas() {
         return new ArrayList<>(listaReservas);
     }
+    
+    
+public synchronized void actualizarReservasVencidas(LocalDate hoy) {
+
+    for (Reserva r : listaReservas) {
+
+        if (r.getEstado() == TipoEstado.CONFIRMADA
+                && r.getFecha_entrada().isBefore(hoy)) {
+
+            r.setEstado(TipoEstado.VENCIDA);
+
+            System.out.println(
+                    "[REVISION INICIAL] Reserva "
+                    + r.getCodigo()
+                    + " actualizada a VENCIDA."
+            );
+        }
+    }
+}
+
 }
