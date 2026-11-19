@@ -28,8 +28,11 @@ public class GestorHotel {
 
         // Inicializar usuarios predefinidos (RF-01)
         this.recepcionistas = new ArrayList<>();
-        this.recepcionistas.add(new Recepcionista("recepcion1", "Hotel123", "123"));
-        this.recepcionistas.add(new Recepcionista("recepcion2", "Hotel456", "321"));
+       this.recepcionistas.add(new Recepcionista(
+    "recepcion1", "Recepcionista 1", "Hotel123"));
+
+this.recepcionistas.add(new Recepcionista(
+    "recepcion2", "Recepcionista 2", "Hotel456"));
         this.sesionActiva = null;
     }
 
@@ -40,15 +43,24 @@ public class GestorHotel {
         return instancia;
     }
 
-    public synchronized boolean iniciarSesion(String usuario, String contrasena) {
-        for (Recepcionista r : recepcionistas) {
-            if (r.getUsuario().equals(usuario) && r.getContraseña().equals(contrasena)) {
-                this.sesionActiva = r;
-                return true;
-            }
-        }
+public synchronized boolean iniciarSesion(String usuario, String contrasena) {
+
+    if (sesionActiva != null) {
         return false;
     }
+
+    for (Recepcionista r : recepcionistas) {
+
+        if (r.getUsuario().equals(usuario)
+                && r.getContraseña().equals(contrasena)) {
+
+            sesionActiva = r;
+            return true;
+        }
+    }
+
+    return false;
+}//para evitar que se inicie otra sesión mientras existe una activa
 
     public synchronized void cerrarSesion() {
         this.sesionActiva = null;

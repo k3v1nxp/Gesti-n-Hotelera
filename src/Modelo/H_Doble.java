@@ -15,11 +15,11 @@ public class H_Doble extends Habitacion {
 
     @Override
     public int getCapacidadMaxima() {
-        return 4;
+        return 2;
     }
 
     @Override
     public int getTartifa() {
-        return 100000;   
+        return 40000;   
     }
 }

@@ -17,42 +17,58 @@ public class SupervisorReservas implements Runnable {
 
     public SupervisorReservas(GestorReservas gestorReservas) {
         this.gestorReservas = gestorReservas;
-        this.enEjecucion = true;
     }
 
     @Override
     public void run() {
+       for (int i = 1; i <= 5; i++) {
+
+            System.out.println(
+                    "[SUPERVISOR] Inicia ejecución (ciclo " + i + " de 5)."
+            );
+
+            verificarYVencerReservas();
+        
         try {
             while (enEjecucion) {
-                verificarYVencerReservas();
-                
-                // El hilo espera 10 segundos antes de la siguiente revisión
-                Thread.sleep(10000); 
+                  if (i < 5) {
+                    Thread.sleep(1000);
+                }
             }
         } catch (InterruptedException e) {
             System.out.println("[SUPERVISOR] El hilo supervisor de reservas fue interrumpido.");
-            Thread.currentThread().interrupt();
+           Thread.currentThread().interrupt();
+                return;  
         }
+          System.out.println(
+                "[SUPERVISOR] Finaliza ejecución."
+        );
+    }
     }
 
-    private synchronized void verificarYVencerReservas() {
+     private void verificarYVencerReservas()  {
         LocalDate hoy = LocalDate.now();
-        List<Reserva> reservas = gestorReservas.getListaReservas();
+            synchronized (gestorReservas) {
 
-        for (Reserva r : reservas) {
-            // Si la reserva está Confirmada y la fecha de entrada es anterior a hoy
-            if (r.getEstado() == TipoEstado.CONFIRMADA) {
-                if (r.getFecha_entrada().isBefore(hoy)) {
+            for (Reserva r : gestorReservas.getListaReservas()) {
+
+                if (r.getEstado() == TipoEstado.CONFIRMADA
+                        && r.getFecha_entrada().isBefore(hoy)) {
+
                     r.setEstado(TipoEstado.VENCIDA);
-                    // Trazas en consola requeridas
-                    System.out.println("[TRAZA HILO SUPERVISOR] La reserva con código " + r.getCodigo() + 
-                                       " ha cambiado a estado VENCIDA. Fecha de entrada era: " + r.getFecha_entrada());
+
+                    System.out.println(
+                            "[SUPERVISOR] Reserva "
+                            + r.getCodigo()
+                            + " actualizada a VENCIDA."
+                    );
                 }
             }
         }
+        
     }
 
-    public void detener() {
-        this.enEjecucion = false;
-    } 
+//    public void detener() {
+  //      this.enEjecucion = false;
+    //} 
 }
