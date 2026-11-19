@@ -631,6 +631,64 @@ public class FrmHotel extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FrmHotel().setVisible(true));
     }
 
+public javax.swing.JButton getBtnRegistrarHuesped() { return btnRegistrarHuesped; }
+public javax.swing.JButton getBtnRegistrarHabitacion() { return btnRegistrarHabitacion; }
+public javax.swing.JButton getBtnCalcularReserva() { return btnCalcularReserva; }
+public javax.swing.JButton getBtnRegistrarReserva() { return btnRegistrarReserva; }
+public javax.swing.JButton getBtnConsultarDisp() { return btnConsultarDisp; }
+public javax.swing.JButton getBtnBuscarReserva() { return btnBuscarReserva; }
+public javax.swing.JButton getBtnProcesarCheck() { return btnProcesarCheck; }
+public javax.swing.JButton getBtnCambiarUsuario() { return btnCambiarUsuario; }
+public javax.swing.JButton getBtnLimpiarHuesped() { return btnLimpiarHuesped; }
+public javax.swing.JButton getBtnEjecutarProcesos() { return btnEjecutarProcesos; }
+public javax.swing.JButton getBtnSimular() { return btnSimular; }
+
+public javax.swing.JComboBox<String> getCmbTipoHabitacion() { return jComboBox1; }
+public javax.swing.JComboBox<String> getCmbHuespedReserva() { return cmbHuespedReserva; }
+public javax.swing.JComboBox<String> getCmbHabitacionReserva() { return cmbHabitacionReserva; }
+
+public javax.swing.JTextField getTxtIdHuesped() { return txtIdHuesped; }
+public javax.swing.JTextField getTxtNombreHuesped() { return txtNombreHuesped; }
+public javax.swing.JTextField getTxtTelefonoHuesped() { return txtTelefonoHuesped; }
+public javax.swing.JTextField getTxtCorreoHuesped() { return txtCorreoHuesped; }
+
+public javax.swing.JTextField getTxtNumHabitacion() { return txtNumHabitacion; }
+public javax.swing.JTextField getTxtCapacidad() { return txtCapacidad; }
+public javax.swing.JTextField getTxtTarifa() { return txtTarifa; }
+
+public javax.swing.JTextField getTxtCantPersonas() { return txtCantPersonas; }
+public javax.swing.JTextField getTxtFechaEntrada() { return txtFechaEntrada; }
+public javax.swing.JTextField getTxtFechaSalida() { return txtFechaSalida; }
+public javax.swing.JTextField getTxtNoches() { return txtNoches; }
+public javax.swing.JTextField getTxtImporte() { return txtImporte; }
+
+public javax.swing.JTextField getTxtFechaConsulta() { return txtFechaConsulta; }
+public javax.swing.JTextArea getTxtListaDisponibles() { return txtListaDisponibles; }
+public javax.swing.JTextField getTxtBuscarCodigo() { return txtBuscarCodigo; }
+
+public javax.swing.JTable getTablaHuespedes() { return jTable1; }
+public javax.swing.JTable getTblHabitaciones() { return tblHabitaciones; }
+public javax.swing.JTable getTblReservas() { return tblReservas; }
+
+public javax.swing.JLabel getLblRecepcionista() { return lblRecepcionista; }
+public javax.swing.JLabel getLblCantDisponibles() { return lblCantDisponibles; }
+public javax.swing.JLabel getLblTotalHabitaciones() { return lblTotalHabitaciones; }
+public javax.swing.JLabel getLblOcupadas() { return lblOcupadas; }
+public javax.swing.JLabel getLblDisponibles() { return lblDisponibles; }
+public javax.swing.JLabel getLblConfirmadas() { return lblConfirmadas; }
+public javax.swing.JLabel getLblVencidas() { return lblVencidas; }
+public javax.swing.JLabel getLblIngresosEsperados() { return lblIngresosEsperados; }
+
+public javax.swing.JRadioButton getRbCheckIn() { return rbCheckIn; }
+public javax.swing.JRadioButton getRbCheckOut() { return rbCheckOut; }
+public javax.swing.JTextField getTxtFechaSimulacion() {
+    return txtFechaSimulacion;
+}
+
+public javax.swing.JTable getTblSimulacion() {
+    return tblSimulacion;
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarReserva;
     private javax.swing.JButton btnCalcularReserva;
