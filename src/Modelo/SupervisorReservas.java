@@ -46,27 +46,12 @@ public class SupervisorReservas implements Runnable {
     }
     }
 
-     private void verificarYVencerReservas()  {
-        LocalDate hoy = LocalDate.now();
-            synchronized (gestorReservas) {
+private void verificarYVencerReservas() {
 
-            for (Reserva r : gestorReservas.getListaReservas()) {
-
-                if (r.getEstado() == TipoEstado.CONFIRMADA
-                        && r.getFecha_entrada().isBefore(hoy)) {
-
-                    r.setEstado(TipoEstado.VENCIDA);
-
-                    System.out.println(
-                            "[SUPERVISOR] Reserva "
-                            + r.getCodigo()
-                            + " actualizada a VENCIDA."
-                    );
-                }
-            }
-        }
-        
-    }
+    gestorReservas.actualizarReservasVencidas(
+            LocalDate.now()
+    );
+}
 
 //    public void detener() {
   //      this.enEjecucion = false;
